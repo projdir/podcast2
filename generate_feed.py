@@ -59,7 +59,7 @@ def generate_xml():
         audio_url = f"{BASE_AUDIO_URL}/{date_str}_{part}.m4a"
         
         item = ET.SubElement(channel, "item")
-        ET.SubElement(item, "title").text = f"Broadcast {date_str} - Part {part}"
+        ET.SubElement(item, "title").text = f"{date_str} - Part {part}"
         ET.SubElement(item, "description").text = f"Part {part} of the broadcast on {date_str}."
         ET.SubElement(item, "pubDate").text = pub_date_rss
         
