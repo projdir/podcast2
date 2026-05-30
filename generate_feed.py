@@ -1,6 +1,6 @@
-# import os
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+import urllib.request
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -86,7 +86,6 @@ def generate_xml():
     pretty_xml = parsed_xml.toprettyxml(indent="  ")
 
     # Save output inside public directory for GitHub Pages
-    # os.makedirs("public", exist_ok=True)
     with open("podcast.xml", "w", encoding="utf-8") as f:
         f.write(pretty_xml)
 
