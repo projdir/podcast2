@@ -15,6 +15,15 @@ FEED_LINK = "https://projdir.github.io/podcast2/podcast.xml"
 # Define HK Timezone globally
 tz = ZoneInfo("Asia/Hong_Kong")
 
+def check_url_exists(url):
+    """Checks if the audio file actually exists on the server."""
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        with urllib.request.urlopen(req) as response:
+            return response.status == 200
+    except Exception:
+        return False
+        
 def get_last_saturday_and_pubdate():
     """Calculates the yyyymmdd string and the RFC 822 pubDate for the most recent Saturday in HK."""
     # Fetch the precise time right now in Western Australia
@@ -57,17 +66,19 @@ def generate_xml():
     # Add the 3 audio fragments as feed items
     for part in ["1", "2", "3"]:
         audio_url = f"{BASE_AUDIO_URL}/{date_str}_{part}.m4a"
-        
-        item = ET.SubElement(channel, "item")
-        ET.SubElement(item, "title").text = f"{date_str} - Part {part}"
-        ET.SubElement(item, "description").text = f"Part {part} of the broadcast on {date_str}."
-        ET.SubElement(item, "pubDate").text = pub_date_rss
-        
-        # Unique identifier for AntennaPod to track history
-        ET.SubElement(item, "guid", isPermaLink="false").text = f"{date_str}_{part}"
-        
-        # Enclosure element maps the media file payload
-        ET.SubElement(item, "enclosure", url=audio_url, length="0", type="audio/mp4")
+
+        # Check if the audio_url exists before adding it
+        if check_url_exists(audio_url):
+            item = ET.SubElement(channel, "item")
+            ET.SubElement(item, "title").text = f"{date_str} - Part {part}"
+            ET.SubElement(item, "description").text = f"Part {part} of the broadcast on {date_str}."
+            ET.SubElement(item, "pubDate").text = pub_date_rss
+            
+            # Unique identifier for AntennaPod to track history
+            ET.SubElement(item, "guid", isPermaLink="false").text = f"{date_str}_{part}"
+            
+            # Enclosure element maps the media file payload
+            ET.SubElement(item, "enclosure", url=audio_url, length="0", type="audio/mp4")
 
     # Pretty print XML
     xml_str = ET.tostring(rss, encoding="utf-8")
