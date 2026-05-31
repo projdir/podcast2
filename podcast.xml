@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>十萬八千里</title>
+    <description>九十分鐘走遍世界，每週陪你漫遊《十萬八千里》</description>
+    <link>https://projdir.github.io/podcast2/podcast.xml</link>
+    <language>zh-CN</language>
+    <image>
+      <url>https://podcast.rthk.hk/podcast/upload_photo/item_photo/1400x1400_293.jpg</url>
+      <title>十萬八千里</title>
+      <link>https://projdir.github.io/podcast2/podcast.xml</link>
+    </image>
+    <item>
+      <title>20260530 - Part 1</title>
+      <description>Part 1 of the broadcast on 20260530.</description>
+      <pubDate>Sat, 30 May 2026 12:00:00 +0800</pubDate>
+      <guid isPermaLink="false">20260530_1</guid>
+      <enclosure url="https://archive.rthk.hk/mp3/radio/contentIndex/radio1/World_in_a_Nutshell/m4a/20260530_1.m4a" length="0" type="audio/mp4"/>
+    </item>
+    <item>
+      <title>20260530 - Part 2</title>
+      <description>Part 2 of the broadcast on 20260530.</description>
+      <pubDate>Sat, 30 May 2026 12:00:00 +0800</pubDate>
+      <guid isPermaLink="false">20260530_2</guid>
+      <enclosure url="https://archive.rthk.hk/mp3/radio/contentIndex/radio1/World_in_a_Nutshell/m4a/20260530_2.m4a" length="0" type="audio/mp4"/>
+    </item>
+    <item>
+      <title>20260530 - Part 3</title>
+      <description>Part 3 of the broadcast on 20260530.</description>
+      <pubDate>Sat, 30 May 2026 12:00:00 +0800</pubDate>
+      <guid isPermaLink="false">20260530_3</guid>
+      <enclosure url="https://archive.rthk.hk/mp3/radio/contentIndex/radio1/World_in_a_Nutshell/m4a/20260530_3.m4a" length="0" type="audio/mp4"/>
+    </item>
+  </channel>
+</rss>
